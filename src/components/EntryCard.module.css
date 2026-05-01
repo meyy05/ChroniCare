@@ -1,0 +1,62 @@
+.entry {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.875rem 1rem;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 12px;
+  transition: border-color 0.12s;
+}
+.entry:hover { border-color: var(--color-border-secondary); }
+
+.icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.info { flex: 1; min-width: 0; }
+.top  { display: flex; align-items: center; gap: 6px; margin-bottom: 3px; flex-wrap: wrap; }
+.typeName { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+.date { font-size: 12px; color: var(--color-text-secondary); }
+.note {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.valBox { text-align: right; }
+.num  { font-size: 17px; font-weight: 500; color: var(--color-text-primary); }
+.unit { font-size: 11px; color: var(--color-text-secondary); margin-left: 2px; }
+
+.deleteBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  padding: 2px 4px;
+  border-radius: 4px;
+  line-height: 1;
+  transition: color 0.12s, background 0.12s;
+}
+.deleteBtn:hover {
+  color: #dc2626;
+  background: #fee2e2;
+}

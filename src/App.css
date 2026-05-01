@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  background: #f9f9f8;
+  color: #111;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 16px 3rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1.5rem 0 1rem;
+  border-bottom: 0.5px solid rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+}
+.logo {
+  width: 36px;
+  height: 36px;
+  background: #1a56db;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.header h1 { font-size: 20px; font-weight: 600; }
+.header span { font-size: 13px; color: #666; font-weight: 400; }
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  background: #f0f0ef;
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 1.5rem;
+}
+.tab {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.tab.active {
+  background: white;
+  color: #111;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+
+.section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: #1a1a1a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+  z-index: 99;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (prefers-color-scheme: dark) {
+  body { background: #111; color: #f0f0ef; }
+  .tabs { background: #1e1e1e; }
+  .tab.active { background: #2a2a2a; color: #f0f0ef; }
+  .header { border-color: rgba(255,255,255,0.1); }
+  .header span { color: #999; }
+  .section-title { color: #999; }
+}
