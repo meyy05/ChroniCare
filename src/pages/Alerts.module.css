@@ -1,0 +1,165 @@
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.875rem 1rem;
+  background: #fef2f2;
+  border: 0.5px solid #fecaca;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #991b1b;
+  margin-bottom: 1.25rem;
+}
+.bannerDot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #dc2626;
+  flex-shrink: 0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+@media (prefers-color-scheme: dark) {
+  .banner { background: #2d0000; border-color: #7f1d1d; color: #fca5a5; }
+}
+
+.card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+.cardTitle {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+.cardDesc {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0.875rem 0;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+  flex-wrap: wrap;
+}
+.row:last-of-type { border-bottom: none; margin-bottom: 1rem; }
+
+.rowLabel { display: flex; flex-direction: column; gap: 2px; }
+.typeName { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+.typeUnit { font-size: 12px; color: var(--color-text-secondary); }
+
+.inputs { display: flex; align-items: center; gap: 8px; }
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+}
+.inputGroup label { font-size: 11px; color: var(--color-text-secondary); font-weight: 500; }
+.thInput {
+  width: 76px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 7px 10px;
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: 8px;
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  text-align: center;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.12s;
+}
+.thInput:focus { border-color: #1a56db; }
+.sep { font-size: 14px; color: var(--color-text-secondary); margin-top: 16px; }
+
+.btnPrimary {
+  width: 100%;
+  padding: 10px;
+  background: #1a56db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.12s, transform 0.1s;
+  margin-top: 0.5rem;
+}
+.btnPrimary:hover  { background: #1e40af; }
+.btnPrimary:active { transform: scale(0.98); }
+
+.sectionTitle {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.badge {
+  background: #fee2e2;
+  color: #991b1b;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 1px 6px;
+  border-radius: 999px;
+}
+
+.alertList { display: flex; flex-direction: column; gap: 8px; }
+.alertRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0.875rem 1rem;
+  border-radius: 10px;
+  border: 0.5px solid;
+}
+.alertRow.warning { background: #fffbeb; border-color: #fef3c7; }
+.alertRow.danger  { background: #fef2f2; border-color: #fee2e2; }
+@media (prefers-color-scheme: dark) {
+  .alertRow.warning { background: #2d1f00; border-color: #92400e44; }
+  .alertRow.danger  { background: #2d0000; border-color: #99181844; }
+}
+
+.alertLeft { display: flex; align-items: flex-start; gap: 10px; flex: 1; }
+.alertIcon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.alertMsg  { font-size: 13px; color: var(--color-text-primary); font-weight: 500; }
+.alertMeta { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+
+.alertBadge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.alertBadge.warning { background: #fef3c7; color: #92400e; }
+.alertBadge.danger  { background: #fee2e2; color: #991b1b; }
+
+.empty {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  background: var(--color-background-secondary);
+  border-radius: 10px;
+}

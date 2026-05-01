@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import EntryCard from '../components/EntryCard';
 import StatCard from '../components/StatCard';
-import Badge from "../components/Badge";
+import Badge from '../components/Badge';
 import { LABELS, UNITS, CHART_COLORS, getStatus, formatDate, computeStats } from '../utils/constants';
 import styles from './Dashboard.module.css';
 
