@@ -1,0 +1,128 @@
+.container {
+  padding: 20px;
+  min-height: 100vh;
+  font-family: inherit;
+  color: var(--color-text-primary);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.subtitle {
+  margin-top: 6px;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid var(--color-border-tertiary);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--color-text-secondary);
+}
+
+.cardValue {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.status {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.statusGood {
+  color: #16a34a;
+}
+
+.statusWarning {
+  color: #f59e0b;
+}
+
+.statusBad {
+  color: #dc2626;
+}
+
+.tokenRow { display: flex; gap: 8px; margin-bottom: 12px; }
+.tokenInput {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border-tertiary);
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+}
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: var(--blue);
+  color: white;
+  cursor: pointer;
+}
+.error { color: #dc2626; margin-bottom: 12px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; }
+.card { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); padding: 10px; border-radius: 10px; }
+.cardHeader { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:6px; }
+.patientName { font-weight:600; }
+.counts { display:flex; gap:6px; font-size:13px; }
+.danger { color:#b91c1c; font-weight:700 }
+.warning { color:#ca8a04 }
+.meta { font-size:13px; color:var(--color-text-secondary); margin-bottom:8px }
+.alertsList { list-style:none; padding:0; margin:0 }
+.alertItem { padding:6px 0; border-top:1px dashed var(--color-border-tertiary) }
+.alertLevel { font-size:12px; color:#b91c1c; margin-right:6px }
+.alertMsg { margin-top:4px; font-size:13px }
+.alertDate { font-size:12px; color:var(--color-text-secondary); margin-top:4px }
+.empty { color:var(--color-text-secondary); }
+
+@media (max-width: 640px) {
+  .headerRow,
+  .tokenRow {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

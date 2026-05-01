@@ -1,0 +1,194 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--color-text-primary);
+}
+
+.header p {
+  margin-top: 0.35rem;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.topGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.card,
+.chatSection {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.9rem;
+  padding: 1rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.sectionHeader h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+}
+
+.muted {
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border-radius: 0.7rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+  font: inherit;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.doctorList,
+.currentList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.doctorCard,
+.currentDoctor {
+  text-align: left;
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+}
+
+.currentDoctor {
+  cursor: pointer;
+}
+
+.currentDoctorActive {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.doctorName {
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.meta {
+  margin-top: 0.25rem;
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+}
+
+.badge,
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.7rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.badge {
+  background: rgba(26, 86, 219, 0.12);
+  color: var(--color-primary);
+}
+
+.statusPill {
+  background: rgba(245, 158, 11, 0.14);
+  color: #b45309;
+}
+
+.actions {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.requestBtn,
+.chatBtn {
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.7rem 0.95rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.requestBtn {
+  background: var(--color-primary);
+  color: white;
+}
+
+.chatBtn {
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+.empty {
+  color: var(--color-text-secondary);
+  font-size: 0.92rem;
+  padding: 1rem 0;
+}
+
+.error {
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  background: rgba(239, 68, 68, 0.1);
+  color: #b91c1c;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.chatSection {
+  min-height: 32rem;
+}
+
+@media (max-width: 900px) {
+  .topGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .chatSection {
+    min-height: 24rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0.75rem;
+  }
+
+  .card,
+  .chatSection {
+    padding: 0.85rem;
+  }
+}

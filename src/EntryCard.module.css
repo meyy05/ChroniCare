@@ -1,0 +1,95 @@
+.entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 10px;
+  padding: 0.875rem 1rem;
+  transition: border-color 0.12s;
+}
+.entry:hover { border-color: var(--color-border-secondary); }
+
+.icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.info { flex: 1; min-width: 0; }
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.typeName {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.date {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.note {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.valBox {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.num {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.unit {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.deleteBtn {
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: var(--color-background-secondary);
+  color: var(--color-text-tertiary);
+  border-radius: 5px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.deleteBtn:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+@media (prefers-color-scheme: dark) {
+  .deleteBtn:hover { background: #2d000080; color: #ef4444; }
+}

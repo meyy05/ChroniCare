@@ -1,0 +1,124 @@
+.card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.cardTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.typeGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+
+.typeBtn {
+  padding: 8px 6px;
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: 8px;
+  background: var(--color-background-secondary);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.12s;
+  text-align: center;
+}
+.typeBtn:hover {
+  border-color: #93c5fd;
+  color: var(--color-text-primary);
+}
+.typeActive {
+  background: #eff6ff;
+  border-color: #1a56db;
+  color: #1a56db;
+  font-weight: 600;
+}
+@media (prefers-color-scheme: dark) {
+  .typeActive {
+    background: #1e3a5f;
+    border-color: #3b82f6;
+    color: #93c5fd;
+  }
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  background: var(--color-background-secondary);
+  border-radius: 7px;
+  padding: 8px 12px;
+  margin-bottom: 1.25rem;
+  border: 0.5px solid var(--color-border-tertiary);
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.field label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.fullCol { grid-column: 1 / -1; }
+
+.unitLabel {
+  font-weight: 400;
+  color: var(--color-text-tertiary);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.inputLarge {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.error {
+  font-size: 13px;
+  color: #dc2626;
+  background: #fef2f2;
+  border-radius: 7px;
+  padding: 8px 12px;
+  margin-bottom: 1rem;
+}
+@media (prefers-color-scheme: dark) {
+  .error { background: #2d000080; color: #fca5a5; }
+}
+
+.btnPrimary {
+  width: 100%;
+  padding: 11px;
+  background: #1a56db;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btnPrimary:hover { background: #1e40af; }
+.btnPrimary:active { background: #1e3a8a; }

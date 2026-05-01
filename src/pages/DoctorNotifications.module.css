@@ -1,0 +1,140 @@
+.container {
+  padding: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.container h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+}
+
+.error {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fee;
+  color: #c33;
+  border-radius: 0.5rem;
+  border-left: 4px solid #c33;
+}
+
+.loading,
+.empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+}
+
+.requestsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.requestCard {
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0.75rem;
+  background-color: var(--color-background-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  transition: box-shadow 0.2s;
+}
+
+.requestCard:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.patientInfo h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
+}
+
+.email {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.detail {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.requestedAt {
+  margin: 0.75rem 0 0 0;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, background-color 0.2s;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+}
+
+.acceptBtn {
+  background-color: #10b981;
+  color: white;
+}
+
+.acceptBtn:hover:not(:disabled) {
+  background-color: #059669;
+}
+
+.rejectBtn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.rejectBtn:hover:not(:disabled) {
+  background-color: #dc2626;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .requestCard {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .btn {
+    flex: 1;
+    min-width: 120px;
+  }
+}

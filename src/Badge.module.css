@@ -1,0 +1,29 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.normal {
+  background: #f0fdf4;
+  color: #166534;
+}
+.warning {
+  background: #fef3c7;
+  color: #92400e;
+}
+.danger {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+@media (prefers-color-scheme: dark) {
+  .normal  { background: #05210f80; color: #86efac; }
+  .warning { background: #2d1f0080; color: #fbbf24; }
+  .danger  { background: #2d000080; color: #fca5a5; }
+}

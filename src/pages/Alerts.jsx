@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LABELS, UNITS, formatDate } from '../utils/constants';
 import styles from './Alerts.module.css';
 
@@ -6,6 +6,10 @@ const TYPES = ['glycemie', 'tension', 'poids', 'frequence'];
 
 export default function Alerts({ thresholds, updateThresholds, alerts, showToast }) {
   const [local, setLocal] = useState({ ...thresholds });
+
+  useEffect(() => {
+    setLocal({ ...thresholds });
+  }, [thresholds]);
 
   const handleChange = (type, side, value) => {
     setLocal(prev => ({

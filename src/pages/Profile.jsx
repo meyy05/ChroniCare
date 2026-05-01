@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { initials, formatDate } from '../utils/constants';
 import styles from './Profile.module.css';
 
@@ -10,9 +10,13 @@ function calcAge(dob) {
   return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
 }
 
-export default function Profile({ profile, updateProfile, data, showToast }) {
+export default function Profile({ profile, updateProfile, data, showToast, role }) {
   const [local, setLocal] = useState({ ...profile });
   const [editing, setEditing] = useState(false);
+
+  useEffect(() => {
+    setLocal({ ...profile });
+  }, [profile]);
 
   const handle = (key, val) => setLocal(p => ({ ...p, [key]: val }));
 
@@ -37,6 +41,7 @@ export default function Profile({ profile, updateProfile, data, showToast }) {
     return diff <= 7;
   }).length;
   const lastDate = data[0]?.date;
+  const isDoctor = role === 'doctor' || Boolean(profile.practiceType || profile.workplaceName || profile.workplaceCity || profile.specialty);
 
   return (
     <div>
@@ -88,40 +93,63 @@ export default function Profile({ profile, updateProfile, data, showToast }) {
               <label>Nom</label>
               <input value={local.lastName} onChange={e => handle('lastName', e.target.value)} />
             </div>
-            <div className={styles.field}>
-              <label>Date de naissance</label>
-              <input type="date" value={local.dob} onChange={e => handle('dob', e.target.value)} />
-            </div>
-            <div className={styles.field}>
-              <label>Sexe</label>
-              <select value={local.sex} onChange={e => handle('sex', e.target.value)}>
-                <option value="M">Masculin</option>
-                <option value="F">Féminin</option>
-                <option value="-">Non précisé</option>
-              </select>
-            </div>
-            <div className={styles.field}>
-              <label>Groupe sanguin</label>
-              <select value={local.bloodType} onChange={e => handle('bloodType', e.target.value)}>
-                <option value="">—</option>
-                {BLOOD_TYPES.map(b => <option key={b} value={b}>{b}</option>)}
-              </select>
-            </div>
-            <div className={styles.field}>
-              <label>Médecin traitant</label>
-              <input value={local.doctor} onChange={e => handle('doctor', e.target.value)} placeholder="Dr. ..." />
-            </div>
+            {isDoctor ? (
+              <>
+                <div className={styles.field}>
+                  <label>Type de pratique</label>
+                  <select value={local.practiceType || 'hospital'} onChange={e => handle('practiceType', e.target.value)}>
+                    <option value="hospital">Hôpital</option>
+                    <option value="private">Cabinet privé</option>
+                    <option value="cabinet">Cabinet</option>
+                  </select>
+                </div>
+                <div className={styles.field}>
+                  <label>Structure</label>
+                  <input value={local.workplaceName || ''} onChange={e => handle('workplaceName', e.target.value)} placeholder="Nom de l'établissement" />
+                </div>
+                <div className={styles.field}>
+                  <label>Ville</label>
+                  <input value={local.workplaceCity || ''} onChange={e => handle('workplaceCity', e.target.value)} placeholder="Tunis, Sfax..." />
+                </div>
+              </>
+            ) : (
+              <>
+                <div className={styles.field}>
+                  <label>Date de naissance</label>
+                  <input type="date" value={local.dob} onChange={e => handle('dob', e.target.value)} />
+                </div>
+                <div className={styles.field}>
+                  <label>Sexe</label>
+                  <select value={local.sex} onChange={e => handle('sex', e.target.value)}>
+                    <option value="M">Masculin</option>
+                    <option value="F">Féminin</option>
+                    <option value="-">Non précisé</option>
+                  </select>
+                </div>
+                <div className={styles.field}>
+                  <label>Groupe sanguin</label>
+                  <select value={local.bloodType} onChange={e => handle('bloodType', e.target.value)}>
+                    <option value="">—</option>
+                    {BLOOD_TYPES.map(b => <option key={b} value={b}>{b}</option>)}
+                  </select>
+                </div>
+                <div className={styles.field}>
+                  <label>Médecin traitant</label>
+                  <input value={local.doctor} onChange={e => handle('doctor', e.target.value)} placeholder="Dr. ..." />
+                </div>
+              </>
+            )}
             <div className={styles.field}>
               <label>Téléphone</label>
               <input value={local.phone} onChange={e => handle('phone', e.target.value)} placeholder="+216 ..." />
             </div>
-            <div className={styles.field}>
-              <label>Email</label>
-              <input type="email" value={local.email} onChange={e => handle('email', e.target.value)} placeholder="exemple@mail.com" />
-            </div>
             <div className={`${styles.field} ${styles.fullCol}`}>
-              <label>Pathologies / conditions</label>
-              <input value={local.conditions} onChange={e => handle('conditions', e.target.value)} placeholder="Diabète type 2, Hypertension..." />
+              <label>{isDoctor ? 'Spécialité / informations professionnelles' : 'Pathologies / conditions'}</label>
+              <input
+                value={isDoctor ? (local.specialty || '') : local.conditions}
+                onChange={e => handle(isDoctor ? 'specialty' : 'conditions', e.target.value)}
+                placeholder={isDoctor ? 'Cardiologie, Médecine générale...' : 'Diabète type 2, Hypertension...'}
+              />
             </div>
           </div>
           <div className={styles.btnRow}>
@@ -132,11 +160,19 @@ export default function Profile({ profile, updateProfile, data, showToast }) {
       )}
 
       {/* doctor info (read-only) */}
-      {!editing && (profile.doctor || profile.phone || profile.email) && (
+      {!editing && (profile.doctor || profile.phone || profile.email || isDoctor) && (
         <div className={styles.infoCard}>
           <p className={styles.formTitle}>Informations de contact</p>
           <div className={styles.infoGrid}>
-            {profile.doctor && <InfoRow icon="👨‍⚕️" label="Médecin" value={profile.doctor} />}
+            {isDoctor ? (
+              <>
+                {profile.practiceType && <InfoRow icon="🏥" label="Pratique" value={profile.practiceType} />}
+                {(profile.workplaceName || profile.workplaceCity) && <InfoRow icon="📍" label="Structure" value={`${profile.workplaceName || 'Lieu non renseigné'}${profile.workplaceCity ? `, ${profile.workplaceCity}` : ''}`} />}
+                {profile.specialty && <InfoRow icon="🩺" label="Spécialité" value={profile.specialty} />}
+              </>
+            ) : (
+              profile.doctor && <InfoRow icon="👨‍⚕️" label="Médecin" value={profile.doctor} />
+            )}
             {profile.phone  && <InfoRow icon="📞" label="Téléphone" value={profile.phone} />}
             {profile.email  && <InfoRow icon="✉️" label="Email" value={profile.email} />}
           </div>

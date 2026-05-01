@@ -73,6 +73,19 @@ export default function Dashboard({ data, thresholds, alerts, onDelete }) {
 
   return (
     <div>
+      {data.length === 0 && (
+        <div style={{
+          padding: '1rem 1.1rem',
+          marginBottom: '1rem',
+          border: '1px solid var(--color-border-tertiary)',
+          borderRadius: 14,
+          background: 'var(--color-background-secondary)',
+          color: 'var(--color-text-secondary)'
+        }}>
+          Aucune mesure enregistrée pour ce compte pour le moment.
+        </div>
+      )}
+
       {/* summary metric cards */}
       <div className={styles.metricsGrid}>
         {METRIC_TYPES.map(type => {
