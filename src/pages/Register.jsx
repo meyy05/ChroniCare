@@ -1,16 +1,17 @@
 import { useMemo, useState } from 'react';
 import styles from './Auth.module.css';
+import logo from '../assets/logo.png';
 
 const PATIENT_FIELDS = [
   { name: 'dob', label: 'Date de naissance', type: 'date' },
-  { name: 'sex', label: 'Sexe', type: 'select', options: ['M', 'F', 'Autre'] },
+  { name: 'sex', label: 'Sexe', type: 'select', options: ['M', 'F'] },
   { name: 'bloodType', label: 'Groupe sanguin', type: 'text', placeholder: 'A+' },
   { name: 'conditions', label: 'Pathologies', type: 'textarea', placeholder: 'Diabète, hypertension...' },
   { name: 'phone', label: 'Téléphone', type: 'text', placeholder: '+216...' },
 ];
 
 const DOCTOR_FIELDS = [
-  { name: 'practiceType', label: 'Type de pratique', type: 'select', options: ['hospital', 'private', 'cabinet'] },
+  { name: 'practiceType', label: 'Type de pratique', type: 'select', options: ['hospital', 'cabinet'] },
   { name: 'workplaceName', label: 'Nom de l’hôpital / cabinet / structure', type: 'text', placeholder: 'CHU Demo' },
   { name: 'workplaceCity', label: 'Ville', type: 'text', placeholder: 'Tunis' },
   { name: 'specialty', label: 'Spécialité', type: 'text', placeholder: 'Médecine générale' },
@@ -44,26 +45,12 @@ export default function Register({ onRegister, onSwitchToLogin, loading = false,
       <div className={styles.card}>
         <section className={styles.hero}>
           <div>
-            <div className={styles.badge}>Créer un compte</div>
             <h1 className={styles.heroTitle}>Créez un compte patient ou médecin.</h1>
             <p className={styles.heroText}>
               Les patients ajoutent leur profil santé. Les médecins renseignent leur lieu de travail pour contextualiser l’application.
             </p>
-            <div className={styles.heroList}>
-              <div className={styles.heroItem}>
-                <div className={styles.heroIcon}>🧑‍⚕️</div>
-                <div>
-                  <div className={styles.heroItemTitle}>Profil médecin</div>
-                  <div className={styles.heroItemText}>Choisissez hôpital, activité privée ou cabinet.</div>
-                </div>
-              </div>
-              <div className={styles.heroItem}>
-                <div className={styles.heroIcon}>🫀</div>
-                <div>
-                  <div className={styles.heroItemTitle}>Profil patient</div>
-                  <div className={styles.heroItemText}>Ajoutez les informations utiles au suivi de vos mesures.</div>
-                </div>
-              </div>
+            <div className={styles.heroLogoLarge}>
+              <img src={logo} alt="ChroniCare" />
             </div>
           </div>
         </section>

@@ -1,4 +1,5 @@
 import styles from './Auth.module.css';
+import logo from '../assets/logo.png';
 
 export default function Login({ onLogin, onSwitchToRegister, loading = false, error = '' }) {
   function handleSubmit(event) {
@@ -15,26 +16,12 @@ export default function Login({ onLogin, onSwitchToRegister, loading = false, er
       <div className={styles.card}>
         <section className={styles.hero}>
           <div>
-            <div className={styles.badge}>ChroniCare</div>
             <h1 className={styles.heroTitle}>Vos données de santé, claires et faciles à suivre.</h1>
             <p className={styles.heroText}>
               Connectez-vous pour voir votre tableau de bord, saisir vos mesures et tout garder au même endroit.
             </p>
-            <div className={styles.heroList}>
-              <div className={styles.heroItem}>
-                <div className={styles.heroIcon}>🔐</div>
-                <div>
-                  <div className={styles.heroItemTitle}>Secure access</div>
-                  <div className={styles.heroItemText}>Utilisez votre email et votre mot de passe pour entrer dans votre compte.</div>
-                </div>
-              </div>
-              <div className={styles.heroItem}>
-                <div className={styles.heroIcon}>🌗</div>
-                <div>
-                  <div className={styles.heroItemTitle}>Mode clair et sombre</div>
-                  <div className={styles.heroItemText}>L’interface suit automatiquement le thème choisi.</div>
-                </div>
-              </div>
+            <div className={styles.heroLogoLarge}>
+              <img src={logo} alt="ChroniCare" />
             </div>
           </div>
         </section>

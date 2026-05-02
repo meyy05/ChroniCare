@@ -60,7 +60,7 @@ router.post('/register', (req, res) => {
   if (password.length < 6) {
     return res.status(400).json({ error: 'Le mot de passe doit comporter au moins 6 caractères' });
   }
-  if (role === 'doctor' && !['hospital', 'private', 'cabinet'].includes(practiceType)) {
+  if (role === 'doctor' && !['hospital', 'cabinet'].includes(practiceType)) {
     return res.status(400).json({ error: 'Type de pratique invalide' });
   }
 
@@ -83,18 +83,6 @@ router.post('/register', (req, res) => {
     ];
     const thrStmt = db.prepare('INSERT INTO thresholds (patient_id, type, min_val, max_val) VALUES (?, ?, ?, ?)');
     for (const t of defaults) thrStmt.run(userId, t.type, t.min, t.max);
-
-    const seedEntryStmt = db.prepare('INSERT INTO health_entries (patient_id, type, val, date, time, context, note) VALUES (?, ?, ?, ?, ?, ?, ?)');
-    const seedEntries = [
-      { type: 'glycemie',  val: 1.08, date: daysAgo(2), time: '07:45', context: 'À jeun',      note: 'Suivi de départ' },
-      { type: 'tension',   val: 126,  date: daysAgo(1), time: '08:20', context: 'Au repos',    note: '' },
-      { type: 'poids',     val: 74.2, date: daysAgo(3), time: '07:10', context: 'Matin',       note: '' },
-      { type: 'frequence', val: 71,   date: daysAgo(1), time: '18:00', context: 'Au repos',    note: '' },
-      { type: 'glycemie',  val: 1.72, date: daysAgo(0), time: '13:10', context: 'Après repas', note: 'Premier enregistrement' },
-    ];
-    for (const entry of seedEntries) {
-      seedEntryStmt.run(userId, entry.type, entry.val, entry.date, entry.time, entry.context, entry.note);
-    }
   }
 
   const user  = db.prepare('SELECT * FROM users WHERE id = ?').get(userId);

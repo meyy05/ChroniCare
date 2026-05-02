@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const fs        = require('fs');
 const express    = require('express');
 const cors       = require('cors');
 const path       = require('path');
@@ -20,12 +21,14 @@ const messagesRouter   = require('./routes/messages');
 
 const app  = express();
 const PORT = process.env.PORT || 5000;
+const frontendDist = path.join(__dirname, '..', 'dist');
+const frontendExists = fs.existsSync(frontendDist);
 
 /* ─────────────────────────────────────────────
    Middleware
 ───────────────────────────────────────────── */
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: process.env.FRONTEND_URL || true,
   credentials: true,
 }));
 
@@ -131,6 +134,18 @@ app.get('/api/alerts/overview', authenticate, doctorOnly, (req, res) => {
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
+
+/* ─────────────────────────────────────────────
+   Frontend hosting
+───────────────────────────────────────────── */
+if (frontendExists) {
+  app.use(express.static(frontendDist));
+
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api')) return next();
+    return res.sendFile(path.join(frontendDist, 'index.html'));
+  });
+}
 
 /* ─────────────────────────────────────────────
    404 catch-all
