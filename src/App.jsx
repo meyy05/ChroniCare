@@ -292,31 +292,24 @@ export default function App() {
               />
             )}
             {tab === 'chat' && (
-              <div style={{ display: 'flex', height: 'calc(100vh - 200px)', gap: '1rem', padding: '1rem' }}>
-                <div style={{ flex: '0 0 250px', borderRight: '1px solid var(--color-border)', overflowY: 'auto' }}>
-                  <h3 style={{ marginTop: 0 }}>Patients</h3>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <div className="doctorChatShell">
+                <div className="doctorChatSidebar">
+                  <h3 className="doctorChatSidebarTitle">Patients</h3>
+                  <div className="doctorChatPatients">
                     {doctorPatients.length === 0 ? (
-                      <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.9rem' }}>Aucun patient</p>
+                      <p className="doctorChatEmptyState">Aucun patient</p>
                     ) : (
                       doctorPatients.map(patient => (
                         <button
                           key={patient.id}
+                          type="button"
+                          className={`doctorChatPatient ${selectedChatContact?.id === patient.id ? 'doctorChatPatientActive' : ''}`}
                           onClick={() => setSelectedChatContact(patient)}
-                          style={{
-                            padding: '0.75rem',
-                            textAlign: 'left',
-                            border: selectedChatContact?.id === patient.id ? '2px solid var(--color-primary)' : '1px solid var(--color-border)',
-                            borderRadius: '0.5rem',
-                            backgroundColor: selectedChatContact?.id === patient.id ? 'var(--color-primary)' : 'var(--color-background-secondary)',
-                            color: selectedChatContact?.id === patient.id ? 'white' : 'var(--color-text-primary)',
-                            cursor: 'pointer',
-                          }}
                         >
-                          <div style={{ fontWeight: '600' }}>
+                          <div className="doctorChatPatientName">
                             {patient.firstName} {patient.lastName}
                           </div>
-                          <div style={{ fontSize: '0.85rem', opacity: 0.8 }}>
+                          <div className="doctorChatPatientEmail">
                             {patient.email}
                           </div>
                         </button>
@@ -324,7 +317,7 @@ export default function App() {
                     )}
                   </div>
                 </div>
-                <div style={{ flex: 1, minWidth: 0 }}>
+                <div className="doctorChatPane">
                   {selectedChatContact ? (
                     <Chat
                       token={authToken}
@@ -334,7 +327,7 @@ export default function App() {
                       contactName={`${selectedChatContact.firstName} ${selectedChatContact.lastName}`}
                     />
                   ) : (
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', color: 'var(--color-text-secondary)' }}>
+                    <div className="doctorChatEmptyState doctorChatEmptyStateCenter">
                       Sélectionnez un patient pour commencer
                     </div>
                   )}

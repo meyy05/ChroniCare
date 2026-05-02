@@ -19,7 +19,7 @@
 
 .topGrid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
   gap: 1rem;
   align-items: start;
 }
@@ -170,6 +170,7 @@
 
 .chatSection {
   min-height: 32rem;
+  min-width: 0;
 }
 
 @media (max-width: 900px) {
@@ -190,5 +191,16 @@
   .card,
   .chatSection {
     padding: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .topGrid {
+    gap: 0.75rem;
+  }
+
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

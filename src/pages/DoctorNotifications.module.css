@@ -138,3 +138,18 @@
     min-width: 120px;
   }
 }
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem;
+  }
+
+  .requestCard {
+    gap: 0.75rem;
+  }
+
+  .btn {
+    width: 100%;
+    min-width: 0;
+  }
+}

@@ -1,6 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  min-height: 0;
   height: 100%;
   background-color: var(--color-background-primary);
   border-radius: 0.75rem;
@@ -35,6 +36,7 @@
 
 .messagesContainer {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -76,7 +78,7 @@
   max-width: 70%;
   padding: 0.75rem 1rem;
   border-radius: 0.75rem;
-  word-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 .sent .bubble {
@@ -161,7 +163,8 @@
 @media (max-width: 768px) {
   .container {
     border-radius: 0;
-    height: calc(100vh - 200px);
+    height: auto;
+    min-height: 0;
   }
 
   .bubble {
@@ -175,5 +178,24 @@
 
   .sendBtn {
     padding: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .messagesContainer {
+    padding: 1rem;
+  }
+
+  .inputForm {
+    flex-direction: column;
+    padding: 0.75rem 1rem 1rem;
+  }
+
+  .sendBtn {
+    width: 100%;
+  }
+
+  .bubble {
+    max-width: 100%;
   }
 }

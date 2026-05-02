@@ -132,3 +132,14 @@
     align-self: flex-start;
   }
 }
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem;
+  }
+
+  .status {
+    width: 100%;
+    text-align: center;
+  }
+}

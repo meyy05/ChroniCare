@@ -204,6 +204,81 @@ body {
 
 main { padding-bottom: 1rem; }
 
+.doctorChatShell {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  min-height: calc(100dvh - 200px);
+  align-items: stretch;
+}
+
+.doctorChatSidebar {
+  flex: 0 0 280px;
+  min-width: 0;
+  border-right: 1px solid var(--color-border);
+  padding-right: 1rem;
+  overflow-y: auto;
+}
+
+.doctorChatSidebarTitle {
+  margin: 0 0 1rem;
+}
+
+.doctorChatPatients {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.doctorChatPatient {
+  width: 100%;
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  min-width: 0;
+}
+
+.doctorChatPatientActive {
+  border: 2px solid var(--color-primary);
+  background: var(--color-primary);
+  color: white;
+}
+
+.doctorChatPatientName {
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.doctorChatPatientEmail {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  word-break: break-word;
+}
+
+.doctorChatPane {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+}
+
+.doctorChatEmptyState {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.doctorChatEmptyStateCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 18rem;
+  text-align: center;
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
   .app {
@@ -319,6 +394,44 @@ main { padding-bottom: 1rem; }
 
   .topbar > div:last-child {
     width: 100%;
+  }
+
+  .doctorChatShell {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .doctorChatShell {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .doctorChatSidebar {
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    padding-right: 0;
+    padding-bottom: 1rem;
+  }
+
+  .doctorChatPane {
+    min-height: 28rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .doctorChatShell {
+    padding: 0.5rem;
+    gap: 0.75rem;
+  }
+
+  .doctorChatPane {
+    min-height: 24rem;
+  }
+
+  .doctorChatEmptyStateCenter {
+    min-height: 14rem;
   }
 }
 

@@ -143,3 +143,42 @@
 
 .infoGrid { display: flex; flex-direction: column; }
 .infoGrid > div:last-child { border-bottom: none !important; }
+
+@media (max-width: 900px) {
+  .headerCard {
+    align-items: center;
+  }
+
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .headerCard {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+  }
+
+  .editBtn {
+    width: 100%;
+  }
+
+  .btnRow {
+    flex-direction: column;
+  }
+
+  .btnSecondary {
+    width: 100%;
+  }
+}

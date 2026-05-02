@@ -105,3 +105,18 @@
   .alertRow.warning { background: #2d1f00; border-color: #92400e44; }
   .alertRow.danger  { background: #2d0000; border-color: #99181844; }
 }
+
+@media (max-width: 640px) {
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chartControls {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .sel {
+    flex: 1 1 140px;
+  }
+}
