@@ -13,8 +13,8 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #dbeafe, #e0e7ff);
-  color: #1e40af;
+  background: linear-gradient(135deg, var(--blue-50), #e6f6f4);
+  color: var(--color-primary-dark);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +23,7 @@
   flex-shrink: 0;
 }
 @media (prefers-color-scheme: dark) {
-  .avatar { background: linear-gradient(135deg, #1e3a5f, #1e1b4b); color: #93c5fd; }
+  .avatar { background: linear-gradient(135deg, var(--color-primary-dark), #0f2a29); color: var(--color-text-primary); }
 }
 
 .headerInfo { flex: 1; }
@@ -126,7 +126,7 @@
 
 .btnPrimary {
   padding: 9px 20px;
-  background: #1a56db;
+  background: var(--color-primary);
   color: white;
   border: none;
   border-radius: 8px;
@@ -136,7 +136,7 @@
   cursor: pointer;
   transition: background 0.15s;
 }
-.btnPrimary:hover { background: #1e40af; }
+.btnPrimary:hover { background: var(--color-primary-dark); }
 
 .btnSecondary {
   padding: 9px 20px;

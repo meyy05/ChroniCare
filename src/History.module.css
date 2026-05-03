@@ -28,15 +28,15 @@
 }
 .fbtn:hover { border-color: var(--color-border-primary); color: var(--color-text-primary); }
 .active {
-  background: #eff6ff;
-  border-color: #1a56db;
-  color: #1a56db;
+  background: var(--blue-50);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 @media (prefers-color-scheme: dark) {
   .active {
-    background: #1e3a5f;
-    border-color: #3b82f6;
-    color: #93c5fd;
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary);
+    color: var(--color-text-primary);
   }
 }
 

@@ -34,7 +34,7 @@ export const PLACEHOLDERS = {
 };
 
 export const CHART_COLORS = {
-  glycemie:  '#1a56db',
+  glycemie:  '#2fa69e',
   tension:   '#7c3aed',
   poids:     '#059669',
   frequence: '#d97706',

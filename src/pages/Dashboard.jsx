@@ -21,7 +21,7 @@ export default function Dashboard({ data, thresholds, alerts, onDelete }) {
     if (!chartRef.current || !window.Chart) return;
     if (chartInstance.current) chartInstance.current.destroy();
 
-    const color  = CHART_COLORS[chartType] || '#1a56db';
+    const color  = CHART_COLORS[chartType] || '#2fa69e';
     const thr    = thresholds[chartType];
     const labels = sliced.map(d => d.date.slice(5).replace('-', '/') + (d.time ? ` ${d.time.slice(0,5)}` : ''));
     const values = sliced.map(d => d.val);
@@ -29,7 +29,7 @@ export default function Dashboard({ data, thresholds, alerts, onDelete }) {
     const annotations = {};
     if (thr && window.Chart) {
       annotations.maxLine = { type: 'line', yMin: thr.max, yMax: thr.max, borderColor: '#dc2626', borderWidth: 1, borderDash: [4, 4], label: { content: `Max ${thr.max}`, display: true, position: 'end', font: { size: 10 }, color: '#dc2626', backgroundColor: 'transparent' } };
-      annotations.minLine = { type: 'line', yMin: thr.min, yMax: thr.min, borderColor: '#2563eb', borderWidth: 1, borderDash: [4, 4], label: { content: `Min ${thr.min}`, display: true, position: 'end', font: { size: 10 }, color: '#2563eb', backgroundColor: 'transparent' } };
+      annotations.minLine = { type: 'line', yMin: thr.min, yMax: thr.min, borderColor: '#1f7f79', borderWidth: 1, borderDash: [4, 4], label: { content: `Min ${thr.min}`, display: true, position: 'end', font: { size: 10 }, color: '#1f7f79', backgroundColor: 'transparent' } };
     }
 
     chartInstance.current = new window.Chart(chartRef.current, {

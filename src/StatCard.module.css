@@ -7,13 +7,13 @@
 }
 
 .highlight {
-  background: #eff6ff;
-  border-color: #bfdbfe;
+  background: var(--blue-50);
+  border-color: var(--color-primary);
 }
 @media (prefers-color-scheme: dark) {
   .highlight {
-    background: #1e3a5f;
-    border-color: #1d4ed880;
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary);
   }
 }
 

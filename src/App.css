@@ -7,39 +7,58 @@
 }
 
 :root {
-  --blue:      #1a56db;
-  --blue-dark: #1e40af;
-  --blue-50:   #eff6ff;
-  --blue-100:  #dbeafe;
+  --blue:      #2fa69e;
+  --blue-dark: #1f7f79;
+  --blue-50:   #e6f6f4;
+  --blue-100:  #d1efeb;
   --radius-sm: 8px;
   --radius-md: 10px;
   --radius-lg: 12px;
 
-  /* UI tokens (light) */
-  --color-background: #f5f5f4;
+  /* UI tokens (light) — palette inspirée de la brochure */
+  --color-background: #eaf6f4;
   --color-background-primary: #ffffff;
-  --color-background-secondary: #f8fafb;
-  --color-text-primary: #0f172a;
-  --color-text-secondary: #475569;
-  --color-border-tertiary: #e6e9ee;
-  --color-border-secondary: #cbd5e1;
-  --color-border: #e6e9ee;
-  --color-primary: #1a56db;
-  --color-primary-dark: #1e40af;
+  --color-background-secondary: #e0f3ef;
+  --color-text-primary: #063636;
+  --color-text-secondary: #3b6b69;
+  --color-border-tertiary: #d7ece9;
+  --color-border-secondary: #bfe6e2;
+  --color-border: #d7ece9;
+  --color-primary: #2fa69e;
+  --color-primary-dark: #1f7f79;
+  /* alert / status colors */
+  --color-normal-bg: #dcfce7;
+  --color-normal-text: #166534;
+  --color-warning-bg: #fffbeb;
+  --color-warning-border: #fef3c7;
+  --color-warning-dot: #d97706;
+  --color-danger-bg: #fef2f2;
+  --color-danger-border: #fee2e2;
+  --color-danger-dot: #dc2626;
 }
 
 /* Dark theme overrides */
 [data-theme="dark"] {
-  --color-background: #0b0b0c;
-  --color-background-primary: #0f1720;
-  --color-background-secondary: #071026;
-  --color-text-primary: #e6eef8;
-  --color-text-secondary: #9aa8bd;
-  --color-border-tertiary: rgba(255,255,255,0.04);
-  --color-border-secondary: rgba(255,255,255,0.06);
-  --color-border: rgba(255,255,255,0.04);
-  --color-primary: #3b82f6;
-  --color-primary-dark: #1e40af;
+  /* Palette sombre assortie à la brochure (verts profonds) */
+  --color-background: #042826;
+  --color-background-primary: #052e2c;
+  --color-background-secondary: #073936;
+  --color-text-primary: #eaf6f4;
+  --color-text-secondary: #9bd0cc;
+  --color-border-tertiary: rgba(234,246,244,0.06);
+  --color-border-secondary: rgba(234,246,244,0.04);
+  --color-border: rgba(234,246,244,0.04);
+  --color-primary: #2fa69e;
+  --color-primary-dark: #1f7f79;
+  /* alert / status colors (dark variants) */
+  --color-normal-bg: #05210f80;
+  --color-normal-text: #86efac;
+  --color-warning-bg: #2d1f00;
+  --color-warning-border: #92400e44;
+  --color-warning-dot: #d97706;
+  --color-danger-bg: #2d0000;
+  --color-danger-border: #99181844;
+  --color-danger-dot: #dc2626;
 }
 
 body {
@@ -71,6 +90,7 @@ body {
   width: 40px;
   height: 40px;
   background: transparent;
+  border: none;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -80,6 +100,7 @@ body {
 /* Ensure logo image fills the icon box without a colored background */
 .brand-icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .brand-name {
+  display: none;
   font-size: 16px;
   font-weight: 600;
   color: var(--color-text-primary);
@@ -122,7 +143,7 @@ body {
   flex-shrink: 0;
 }
 @media (prefers-color-scheme: dark) {
-  .avatar-chip { background: #1e3a5f; color: #93c5fd; }
+  .avatar-chip { background: var(--color-primary-dark); color: var(--color-text-primary); }
 }
 
 /* ── Tabs ── */
@@ -306,8 +327,9 @@ main { padding-bottom: 1rem; }
   }
 
   .brand-icon {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
   }
 
   .profile-chip,
@@ -358,8 +380,9 @@ main { padding-bottom: 1rem; }
   }
 
   .brand-icon {
-    width: 32px;
-    height: 32px;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
   }
 
   .brand-name {
